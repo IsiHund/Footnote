@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Footnote
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar placeholder="Suchen" showCancelButton color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
+  <div *ngIf="objectsToShow==[]">Es können derzeit keine Objekte angezeigt werden.</div>
+  <ion-list>
+    <ion-item *ngFor="let object of objectsToShow; let i = index">
+      <div (click)="openModal(i)">
+        <ion-avatar item-start>
+          <img-loader [src]="getImage(object.image)" useImg></img-loader>
+        </ion-avatar>
+        <b>{{object.name}}</b><br>
+        <span [innerHTML]="object.description"></span>
+      </div>
+      <div *ngIf="object.isEditable">
+        <input [(ngModel)]="object.name">
+        <quill-editor [(ngModel)]="object.description">
+          <div quill-editor-toolbar>
+            <span class="ql-formats">
+              <button class="ql-bold" [title]="'Bold'"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-italic" [title]="'Italic'"></button>
+            </span>
+            <span class="ql-formats">
+              <button class="ql-underline" [title]="'Underline'"></button>
+            </span>
+          </div>
+        </quill-editor>
+      </div>
+      <button ion-button round icon-only (click)="delete(i)">
+        <ion-icon md-name="delete"></ion-icon>
+      </button>
+      <button *ngIf="!object.isEditable" ion-button round icon-only (click)="edit(i)">
+        <ion-icon md-name="edit"></ion-icon>
+      </button>
+      <button *ngIf="object.isEditable" ion-button round icon-only (click)="done(i)">
+        <ion-icon md-name="done"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-button round color="primary" (click)="addObject()">
+        <ion-icon md-name="note_add"></ion-icon>Objekt hinzufügen
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

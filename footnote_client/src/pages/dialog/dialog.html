@@ -1,0 +1,42 @@
+<!--
+  Upload-Dialog Images and Files can be uploaded
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Dateien hochladen</ion-title>
+    <ion-buttons start>
+      <button ion-button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <input type="file" #file style="display: none" (change)="onFilesAdded()" multiple />
+  <div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+    <div>
+      <button ion-button [disabled]="uploading || uploadSuccessful" class="add-files-btn" (click)="addFiles()">
+        Dateien hinzufügen
+      </button>
+    </div>
+
+    <!-- This is the content of the dialog, containing a list of the files to upload -->
+    <div>
+      <div>
+        <div *ngFor="let file of files">
+          {{file.name}}
+          <!--  <progress-bar *ngIf="progress" mode="determinate" [progress]="progress[file.name].progress | async"></progress-bar> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- This are the actions of the dialog, containing the primary and the cancel button-->
+    <div class="actions">
+      <button ion-button *ngIf="showCancelButton" (click)="dismiss()">Cancel</button>
+      <button ion-button [disabled]="!canBeClosed" (click)="closeDialog()">{{primaryButtonText}}</button>
+    </div>
+    <!--<button ion-button round icon-only (click)="takePhoto()">Foto</button>-->
+  </div>
+</ion-content>

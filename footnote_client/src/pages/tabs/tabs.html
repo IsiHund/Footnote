@@ -1,0 +1,8 @@
+<ion-tabs>
+  <ion-tab [root]="home" [rootParams]="id" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="usergroup" tabTitle="Gruppen" tabIcon="people"></ion-tab>
+  <ion-tab (ionSelect)="openWikitude()" tabTitle="GPS" [show]="isAndroid||isIOS" tabIcon="navigate"></ion-tab>
+
+  <ion-tab tabTitle="Vuforia" tabIcon="aperture" [show]="isAndroid" (ionSelect)="openVuforia()"></ion-tab>
+  <ion-tab tabTitle="ausloggen" tabIcon="log-out" (ionSelect)="logout()"></ion-tab>
+</ion-tabs>

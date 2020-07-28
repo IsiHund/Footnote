@@ -1,0 +1,55 @@
+<!--
+  Detail page. Notes can be added, edited and deleded.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Notizen {{object.name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail slot="start">
+        <img-loader [src]="getImage(object.image)" useImg></img-loader>
+      </ion-thumbnail>
+    </ion-item>
+    <ion-item>
+      <b>Beschreibung:</b>
+      <p [innerHTML]="object.description"></p>
+    </ion-item>
+    <ion-item text-wrap>
+      <b>Notizen:</b>
+      <div *ngFor="let in of object.notes; let i = index">
+        <div *ngIf='!in.isEditable' [innerHTML]="in.content"></div>
+        <div *ngIf='in.isEditable'>
+          <quill-editor [(ngModel)]="in.content"></quill-editor>
+        </div>
+        <div *ngFor="let file of in.files.split(';'); let i = index">
+          <a [attr.href]="getFile(file)">{{file}}</a>
+        </div>
+        <button ion-button round icon-only (click)="delete(i)">
+          <ion-icon md-name="delete"></ion-icon>
+        </button>
+        <button ion-button round icon-only *ngIf='!in.isEditable' (click)="edit(i)">
+          <ion-icon md-name="edit"></ion-icon>
+        </button>
+        <button ion-button round icon-only *ngIf='in.isEditable' (click)="done(i)">
+          <ion-icon md-name="done"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+    <ion-item>
+      <button ion-button round color="primary" (click)="addNote(i)">
+        <ion-icon md-name="note_add"></ion-icon>Notiz hinzufügen
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>

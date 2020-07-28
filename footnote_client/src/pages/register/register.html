@@ -1,0 +1,67 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+    <ion-grid>
+      <div padding-horizontal text-center class="animated fadeInDown">
+        <div class="logo"><img src="../../assets/imgs/logo.png" height="50px"></div>
+        <h2 ion-text class="text-primary">
+          <strong>Footnote</strong> Login
+        </h2>
+      </div>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <!-- Login form -->
+          <form class="list-form" name="login">
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="vname" item-start class="text-primary"></ion-icon>
+                Vorname
+              </ion-label>
+              <ion-input name="vname" type="text" [(ngModel)]='firstname'></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="nname" item-start class="text-primary"></ion-icon>
+                Nachname
+              </ion-label>
+              <ion-input name="nname" type="text" [(ngModel)]='lastname'></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+                Email
+              </ion-label>
+              <ion-input name="email" type="email" [(ngModel)]='email'></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                Password
+              </ion-label>
+              <ion-input name="password1" type="password" [(ngModel)]='password1'></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                Password wiederholen
+              </ion-label>
+              <ion-input name="password2" type="password" [(ngModel)]='password2'></ion-input>
+            </ion-item>
+          </form>
+
+          <div>
+            <button ion-button icon-start block color="dark" tappable (click)="register()">
+              <ion-icon name="log-in"></ion-icon>
+              Registrieren
+            </button>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+  </div>
+</ion-content>

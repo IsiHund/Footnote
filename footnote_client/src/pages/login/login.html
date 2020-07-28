@@ -1,0 +1,44 @@
+<ion-content padding class="animated fadeIn login auth-page">
+  <div class="login-content">
+    <ion-grid>
+      <div padding-horizontal text-center class="animated fadeInDown">
+        <div class="logo">
+          <img src="../../assets/imgs/logo.png" height="50px">
+        </div>
+        <h2 ion-text class="text-primary">
+          <strong>Footnote</strong> Login
+        </h2>
+      </div>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <form class="list-form" name="login">
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+                Email
+              </ion-label>
+              <ion-input name="email" type="email" [(ngModel)]='username'></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>
+                <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+                Passwort
+              </ion-label>
+              <ion-input name="password" type="password" [(ngModel)]='password'></ion-input>
+            </ion-item>
+          </form>
+          <div>
+            <button ion-button icon-start block color="dark" tappable (click)="login()">
+              <ion-icon name="log-in"></ion-icon>
+              einloggen
+            </button>
+          </div>
+
+          <div text-center margin-top>
+            <span ion-text color="primary" tappable (click)="register()">Neu hier? <strong>registrieren</strong></span>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

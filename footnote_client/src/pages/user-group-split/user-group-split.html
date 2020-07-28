@@ -1,0 +1,6 @@
+<ion-split-pane (ionChange)="navProxy.onSplitPaneChanged($event._visible)">
+  <ion-nav [root]="userGroupPage" #masterNav>
+  </ion-nav>
+  <ion-nav [root]="FeedPage" #detailNav main>
+  </ion-nav>
+</ion-split-pane>

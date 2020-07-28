@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Objekt hinzufügen</ion-title>
+    <ion-buttons start>
+      <button ion-button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label color="primary" stacked>Objekt</ion-label>
+    <ion-input type="text" [(ngModel)]="newContent"></ion-input>
+  </ion-item>
+  <quill-editor [(ngModel)]="detail"></quill-editor>
+  <button ion-button round icon-only (click)="done()">
+    <ion-icon md-name="done"></ion-icon>
+  </button>
+</ion-content>

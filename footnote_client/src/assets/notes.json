@@ -1,0 +1,23 @@
+[
+    {
+      "object": "Staubsauger",
+      "infos": [
+        {"description":"Staubsauger saugt nicht mehr"},
+        {"description":"Staubsauger saugt wieder"}
+      ]
+    },
+    {
+      "object": "Smartphone",
+      "infos": [
+        {"description":"Akku kaputt"},
+        {"description":"Display kaputt"}
+      ]
+    },
+    {
+      "object": "Drucker",
+      "infos": [
+        {"description":"Druckerpatrone leer"},
+        {"description":"Scanner kaputt"}
+      ]
+    }
+]
