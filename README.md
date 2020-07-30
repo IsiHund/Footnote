@@ -59,3 +59,7 @@ add the /dist folder of the client into the webcontent of the Netbeans-Project b
  to be able to access it, this can be done with for example [Putty](https://www.putty.org/)
  4. Click on Deployments and add a new deployment, where you drag and drop the war file - dont forget to enable the deployment!
  5. If you get a success message, you can now access  for example the REST Test Method on http://vm68.htl-leonding.ac.at:80/footnote/rest/json
+
+### Code Ownership
+
+In this thesis project, Isabella Hundstorfer was responsible for the Webapp, Android App/API-Connection and Recognition Framework Study and Christopher Gusenbauer was responsible for the Java EE Server, Security and Deployment/Infrastructure/Docker
